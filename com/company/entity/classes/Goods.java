@@ -27,8 +27,8 @@ public abstract class Goods {
         this.exist = exist;
         this.information = information;
         this.averageScore = averageScore;
-        this.sellerCompanyName = sellerCompanyName;
-        this.sellerName = sellerName;
+       setSellerCompanyName(sellerCompanyName);
+        setSellerName(sellerName);
     }
 
     public void setGoodId(String goodId) {
