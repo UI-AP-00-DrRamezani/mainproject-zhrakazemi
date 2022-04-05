@@ -20,13 +20,13 @@ public abstract class Goods {
 
 
     public Goods(String goodId, String name, String brand, long price, boolean exist, String information, double averageScore, String sellerCompanyName, String sellerName) {
-        this.goodId = goodId;
-        this.name = name;
-        this.brand = brand;
-        this.price = price;
-        this.exist = exist;
-        this.information = information;
-        this.averageScore = averageScore;
+        setGoodId(goodId);
+        setName(name);
+        setBrand(brand);
+        setPrice(price);
+        setExist(exist);
+        setInformation(information);
+        setAverageScore(averageScore);
        setSellerCompanyName(sellerCompanyName);
         setSellerName(sellerName);
     }
@@ -116,11 +116,11 @@ abstract class DigitalGood extends Goods {
                        double averageScore, String sellerCompanyName, String sellerName, int memory, int ram,
                        String system, double mass, double size) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName);
-        this.memory = memory;
-        this.ram = ram;
-        this.system = system;
-        this.mass = mass;
-        this.size = size;
+        setMemory(memory);
+        setRam(ram);
+        setSystem(system);
+        setMass(mass);
+        setSize(size);
     }
 
     public int getMemory() {
@@ -172,8 +172,8 @@ class CellPhone extends DigitalGood {
                      double averageScore, String sellerCompanyName, String sellerName, int memory, int ram,
                      String system, double mass, double size, int simCard, int cameraQuality) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName, memory, ram, system, mass, size);
-        this.simCard = simCard;
-        this.cameraQuality = cameraQuality;
+        setSimCard(simCard);
+        setCameraQuality(cameraQuality);
     }
 
     public int getSimCard() {
@@ -201,8 +201,8 @@ class Loptop extends DigitalGood {
                   double averageScore, String sellerCompanyName, String sellerName, int memory, int ram,
                   String system, double mass, double size, String CPUModel, boolean gaming) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName, memory, ram, system, mass, size);
-        this.CPUModel = CPUModel;
-        this.gaming = gaming;
+       setCPUModel(CPUModel);
+        setGaming(gaming);
     }
 
     public String getCPUModel() {
@@ -229,8 +229,8 @@ abstract class Clothes extends Goods {
     public Clothes(String goodId, String name, String brand, long price, boolean exist, String information,
                    double averageScore, String sellerCompanyName, String sellerName, String country, String material) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName);
-        this.country = country;
-        this.material = material;
+        setCountry(country);
+        setMaterial(material);
     }
 
     public String getCountry() {
@@ -262,7 +262,7 @@ class Shirt extends Clothes {
     public Shirt(String goodId, String name, String brand, long price, boolean exist, String information,
                  double averageScore, String sellerCompanyName, String sellerName, String country, String material, String size, clothType type) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName, country, material);
-        this.size = size;
+       setSize(size);
         this.type = type;
     }
 
@@ -287,7 +287,7 @@ class Shoes extends Clothes {
     public Shoes(String goodId, String name, String brand, long price, boolean exist, String information,
                  double averageScore, String sellerCompanyName, String sellerName, String country, String material, int size, shoeType type) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName, country, material);
-        this.size = size;
+        setSize(size);
         this.type = type;
     }
 
@@ -307,8 +307,8 @@ abstract class HomeApplication extends Goods {
     public HomeApplication(String goodId, String name, String brand, long price, boolean exist, String information,
                            double averageScore, String sellerCompanyName, String sellerName, String energyUsage, boolean warranty) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName);
-        this.energyUsage = energyUsage;
-        this.warranty = warranty;
+        setEnergyUsage(energyUsage);
+        setWarranty(warranty);
     }
 
     public String getEnergyUsage() {
@@ -336,8 +336,8 @@ class TV extends HomeApplication {
               double averageScore, String sellerCompanyName, String sellerName,
               String energyUsage, boolean warranty, int pictureQuality, int size) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName, energyUsage, warranty);
-        this.pictureQuality = pictureQuality;
-        this.size = size;
+        setPictureQuality(pictureQuality);
+        setSize(size);
     }
 
     public int getPictureQuality() {
@@ -366,9 +366,9 @@ class Rifrigirator extends HomeApplication {
                         double averageScore, String sellerCompanyName, String sellerName, String energyUsage,
                         boolean warranty, int capacity, String type, boolean freezer) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName, energyUsage, warranty);
-        this.capacity = capacity;
-        Type = type;
-        this.freezer = freezer;
+        setCapacity(capacity);
+        setType(type);
+        setFreezer(freezer);
     }
 
     public int getCapacity() {
@@ -405,9 +405,9 @@ class Oven extends HomeApplication {
                 double averageScore, String sellerCompanyName, String sellerName, String energyUsage,
                 boolean warranty, int ovenNumber, String material, boolean oven) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName, energyUsage, warranty);
-        this.ovenNumber = ovenNumber;
-        this.material = material;
-        this.oven = oven;
+        setOvenNumber(ovenNumber);
+        setMaterial(material);
+        setOven(oven);
     }
 
     public int getOvenNumber() {
@@ -442,8 +442,8 @@ class Food extends Goods {
     public Food(String goodId, String name, String brand, long price, boolean exist, String information,
                 double averageScore, String sellerCompanyName, String sellerName, String productionDate, String expiryDate) {
         super(goodId, name, brand, price, exist, information, averageScore, sellerCompanyName, sellerName);
-        this.productionDate = productionDate;
-        this.expiryDate = expiryDate;
+        setProductionDate(productionDate);
+        setExpiryDate(expiryDate);
     }
 
     public String getProductioDate() {
