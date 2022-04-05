@@ -3,6 +3,7 @@ package com.company.panelsandpages.panels;
 import com.company.MainMenu.OnlineShopPanel;
 import com.company.entity.classes.Admin;
 import com.company.entity.classes.AdminCommander;
+import com.company.entity.classes.Goods;
 import com.company.entity.classes.SalePerson;
 
 import java.util.ArrayList;
@@ -40,27 +41,50 @@ public class Adminpanel {
                 break;
         }
     }
-    public    static  void addSeller(ArrayList<SalePerson> sellers){
+
+    public static void addSeller(ArrayList<SalePerson> sellers) {
         System.out.println("for viewing the list press 1");
         Scanner sc = new Scanner(System.in);
         int one = sc.nextInt();
         int i = 1;
-        if(one ==1) {
+        if (one == 1) {
             int size = sellers.size();
-            for (int j = 0 ; j< size ; j++) {
-                System.out.println( i+" company name: " + sellers.get(j).getCompanyName() + "\n company registration number: " + sellers.get(j).getCompanyNo() +
+            for (int j = 0; j < size; j++) {
+                System.out.println(i + " company name: " + sellers.get(j).getCompanyName() + "\n company registration number: " + sellers.get(j).getCompanyNo() +
                         "\n name and last name: " + sellers.get(j).getName() + sellers.get(j).getLastName() + "\n E_mail adress: " + sellers.get(j).getEmail());
                 i++;
             }
         }
         System.out.println("enter the number of requests you are going to accept now: ");
         int t = sc.nextInt();
-        while(t>0) {
+        while (t > 0) {
             System.out.println("for accepting  requests enter their numbers: ");
             int number = sc.nextInt();
             number = -1;
             Admin.reallSellers.add(sellers.get(number));
             t--;
+        }
+    }
+
+    public static void addGood(ArrayList<Goods> addGoodRequest) {
+        System.out.println("for viewing the requests list press 1");
+        Scanner sc = new Scanner(System.in);
+        int one = sc.nextInt();
+        int i = 1;
+        if (one == 1) {
+            for (Goods a : addGoodRequest) {
+                System.out.println(i + ".  " + a.getName() + "  " + a.getBrand() + "   " + a.getSellerCompanyName() + "   " + a.getSellerName() + "   " + a.getPrice());
+                i++;
+            }
+            System.out.println("enter the number of requests you are going to accept now: ");
+            int t = sc.nextInt();
+            while (t > 0) {
+                System.out.println("for accepting  requests enter their numbers: ");
+                int number = sc.nextInt();
+                number = -1;
+                Admin.reallGoods.add(addGoodRequest.get(number));
+                t--;
+            }
         }
     }
 }
