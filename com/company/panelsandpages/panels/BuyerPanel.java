@@ -20,8 +20,7 @@ System.out.println("if you want to change your information, press one");
             changeInfo(buyer);
         }
         else{
-          //TODO show products;
-
+          CategoryPanel.showProduct();
            }
         }
    public static void changeInfo(Buyer buyer){
@@ -58,7 +57,7 @@ System.out.println("if you want to change your information, press one");
                 System.out.println("done!");
                 break;
             case 5:
-                System.out.println("please enter your new name:");
+                System.out.println("please enter your new password");
                 new1= sc.nextLine();
                 System.out.println("please reenter your password: ");
                 String pass2 = sc.nextLine();
@@ -66,7 +65,7 @@ System.out.println("if you want to change your information, press one");
                     System.out.println("passwords dosent match , try again");
                     pass2 = sc.nextLine();
                 }
-               buyers.get(i).getPassword();
+               buyers.get(i).setPassword(new1);
                 System.out.println("done!");
                 break;
 
