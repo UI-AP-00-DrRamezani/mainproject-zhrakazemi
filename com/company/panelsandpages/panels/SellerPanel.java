@@ -4,8 +4,6 @@ import com.company.entity.classes.*;
 
 import java.util.Scanner;
 
-import static com.company.MainMenu.OnlineShopPanel.buyers;
-
 public class SellerPanel {
     public static void panel(SalePerson seller) {
         SellerPanel x = new SellerPanel();
@@ -21,7 +19,7 @@ public class SellerPanel {
                 //
                 break;
             case 3:
-                //
+                deleteGood(seller);
                 break;
             case 4:
                 x.addGood();
@@ -90,7 +88,6 @@ public class SellerPanel {
         boolean exist = sc.hasNext();
         sc.nextLine();
         String info = sc.nextLine();
-        double averageScore = UserScoreCommander.countScore();
         sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
@@ -106,7 +103,7 @@ public class SellerPanel {
         int simcard = sc.nextInt();
         int cameraQuality = sc.nextInt();
 
-        CellPhone temp = new CellPhone(id, name, brand, price, exist, info, averageScore, sellerCompany,
+        CellPhone temp = new CellPhone(id, name, brand, price, exist, info,sellerCompany,
                 sellerName, memory, ram, system, mass, size, simcard, cameraQuality);
         return temp;
     }
@@ -123,7 +120,6 @@ public class SellerPanel {
         boolean exist = sc.hasNext();
         sc.nextLine();
         String info = sc.nextLine();
-        double averageScore = UserScoreCommander.countScore();
         sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
@@ -138,7 +134,7 @@ public class SellerPanel {
         System.out.println("now please enter CPU model and tell me if it is gaming or not: ");
         String CPU = sc.nextLine();
         boolean gaming = sc.hasNext();
-        Loptop loptop = new Loptop(id, name, brand, price, exist, info, averageScore,
+        Loptop loptop = new Loptop(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, memory, ram, system, mass, size, CPU, gaming);
         return loptop;
     }
@@ -155,7 +151,6 @@ public class SellerPanel {
         boolean exist = sc.hasNext();
         sc.nextLine();
         String info = sc.nextLine();
-        double averageScore = UserScoreCommander.countScore();
         sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
@@ -166,7 +161,7 @@ public class SellerPanel {
         String size = sc.nextLine();
         String type = sc.nextLine();
         Shirt.clothType enumType = Shirt.clothType.valueOf(type);
-        Shirt temp = new Shirt(id, name, brand, price, exist, info, averageScore,
+        Shirt temp = new Shirt(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, countery, material, size, enumType);
         return temp;
     }
@@ -183,7 +178,6 @@ public class SellerPanel {
         boolean exist = sc.hasNext();
         sc.nextLine();
         String info = sc.nextLine();
-        double averageScore = UserScoreCommander.countScore();
         sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
@@ -195,7 +189,7 @@ public class SellerPanel {
         sc.nextLine();
         String type = sc.nextLine();
         Shoes.shoeType enumType = Shoes.shoeType.valueOf(type);
-        Shoes temp = new Shoes(id, name, brand, price, exist, info, averageScore,
+        Shoes temp = new Shoes(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, countery, material, size, enumType);
         return temp;
     }
@@ -212,7 +206,6 @@ public class SellerPanel {
         boolean exist = sc.hasNext();
         sc.nextLine();
         String info = sc.nextLine();
-        double averageScore = UserScoreCommander.countScore();
         sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
@@ -222,7 +215,7 @@ public class SellerPanel {
         System.out.println("now please enter picture quality and its size:");
         int picQuality = sc.nextInt();
         int size = sc.nextInt();
-        TV temp = new TV(id, name, brand, price, exist, info, averageScore,
+        TV temp = new TV(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, energy, warranty, picQuality, size);
         return temp;
     }
@@ -239,7 +232,6 @@ public class SellerPanel {
         boolean exist = sc.hasNext();
         sc.nextLine();
         String info = sc.nextLine();
-        double averageScore = UserScoreCommander.countScore();
         sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
@@ -251,11 +243,10 @@ public class SellerPanel {
         sc.nextLine();
         String type = sc.nextLine();
         boolean freezer = sc.hasNext();
-        Rifrigirator temp = new Rifrigirator(id, name, brand, price, exist, info, averageScore,
+        Rifrigirator temp = new Rifrigirator(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, energy, warranty, capacity, type, freezer);
         return temp;
     }
-
     public Oven addOven() {
         System.out.println("please enter general information below: ");
         System.out.println("Id ,name , brand, price , existance status , information , company name , your name , " +
@@ -268,7 +259,6 @@ public class SellerPanel {
         boolean exist = sc.hasNext();
         sc.nextLine();
         String info = sc.nextLine();
-        double averageScore = UserScoreCommander.countScore();
         sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
@@ -280,7 +270,7 @@ public class SellerPanel {
         sc.nextLine();
         String material = sc.nextLine();
         boolean oven = sc.hasNext();
-        Oven temp = new Oven(id, name, brand, price, exist, info, averageScore,
+        Oven temp = new Oven(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, energy, warranty, ovenNumber, material, oven);
         return temp;
     }
@@ -296,14 +286,13 @@ public class SellerPanel {
         boolean exist = sc.hasNext();
         sc.nextLine();
         String info = sc.nextLine();
-        double averageScore = UserScoreCommander.countScore();
         sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
         System.out.println("now please enter production and expiry date:");
         String productionDate = sc.nextLine();
         String expiryDate = sc.nextLine();
-        Food temp = new Food(id, name, brand, price, exist, info, averageScore,
+        Food temp = new Food(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, productionDate, expiryDate);
         return temp;
     }
@@ -354,6 +343,18 @@ public class SellerPanel {
                     break;
 
             }
+    }
+    public static void deleteGood(SalePerson seller){
+        System.out.println("please enter the number next to product you want to delete:");
+        int i=1;
+        for(Goods a: seller.goods){
+            System.out.println(i+".  "+a.getName()+"   "+a.getBrand()+"  "+a.getPrice());
+            i++;
+        }
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        number = number-1;
+        seller.deleteRequests.add(seller.goods.get(number));
     }
 }
 
