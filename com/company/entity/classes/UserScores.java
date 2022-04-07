@@ -5,20 +5,8 @@ import java.util.Scanner;
 
 public class UserScores {
     private GeneralAccount user;
-    private double score;
+    public double score;
     private Goods good;
-    ArrayList<UserScores> clientsScore = new ArrayList<UserScores>();
-
-    void getScore (){
-        UserScores clientsco = new UserScores();
-        //setUser(//TODO login);
-        System.out.println("please enter your score to this product from 1 to 5 :");
-        Scanner sc = new Scanner(System.in);
-        double score = sc.nextDouble();
-        setScore(score);
-        //setGood();
-    }
-
     public GeneralAccount getUser() {
         return user;
     }
