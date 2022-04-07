@@ -6,6 +6,7 @@ import com.company.entity.classes.GeneralAccount;
 import com.company.MainMenu.OnlineShopPanel;
 import com.company.entity.classes.Goods;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static com.company.MainMenu.OnlineShopPanel.buyers;
@@ -71,19 +72,13 @@ System.out.println("if you want to change your information, press one");
 
         }
     }
-    public  void shopping(){
-        for (Goods a : Buyer.cart){
-            Buyer.budget= Buyer.budget - a.getPrice();
-            BuyerCommander.factureGoods.add(a);
-        }
-        printFacture();
-    }
-    public static void printFacture(){
+
+    public static void printFacture(ArrayList<Goods> goods){
         System.out.println("facture No." +BuyerCommander.getFactureCod()+"      "+"Date: " + BuyerCommander.getFactureDate());
         System.out.println("--------------------products list-------------------");
         int i=1;
         System.out.println();
-        for(Goods a : BuyerCommander.factureGoods){
+        for(Goods a :goods){
             System.out.println(i +" ."+ a.getName() +"   "+a.getBrand()+"   "+a.getPrice()+"    "+a.getSellerCompanyName()+"   "+a.getSellerName());
         }
         System.out.println("----------------------------------------------------");
