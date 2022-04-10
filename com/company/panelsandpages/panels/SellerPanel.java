@@ -1,5 +1,7 @@
 package com.company.panelsandpages.panels;
 
+import com.company.Main;
+import com.company.MainMenu.FirstPagePanel;
 import com.company.entity.classes.*;
 
 import java.util.Scanner;
@@ -7,27 +9,31 @@ import java.util.Scanner;
 public class SellerPanel {
     public static void panel(SalePerson seller) {
         SellerPanel x = new SellerPanel();
-        System.out.println("wellcome!\nplease choose an option:");
-        System.out.println("1-Change personal information\n2-Edit a product info\n3-Delete a product\n4-Add a product\n");
-        Scanner sc = new Scanner(System.in);
-        int order = sc.nextInt();
-        switch (order){
-            case 1:
-                changeInfo(seller);
-                break;
-            case 2:
-                //
-                break;
-            case 3:
-                deleteGood(seller);
-                break;
-            case 4:
-                x.addGood();
-                break;
+        while (true) {
+            System.out.println("wellcome!\nplease choose an option:");
+            System.out.println("1-Change personal information\n2-Edit a product info\n3-Delete a product\n4-Add a product\n5-exit");
+            Scanner sc = new Scanner(System.in);
+            int order = sc.nextInt();
+            switch (order) {
+                case 1:
+                    changeInfo(seller);
+                    break;
+                case 2:
+                    //
+                    break;
+                case 3:
+                    deleteGood(seller);
+                    break;
+                case 4:
+                    x.addGood();
+                    break;
+                case 5:
+                    FirstPagePanel.firstPage();
+            }
         }
     }
 
-    public  void addGood() {
+    public void addGood() {
         System.out.println("please choose what kind of goods you want to add: ");
         System.out.println("1-Cell Phone\n2-Lop top\n3-Shirt\n4-Shoes\n5-Tv\n6-Refrigerator\n7-Oven\n8-Food");
         Scanner sc = new Scanner(System.in);
@@ -64,7 +70,7 @@ public class SellerPanel {
                 CategoryPanel.rifrigirators.add(tempref);
                 break;
             case 7:
-               Oven tempOven = addOven();
+                Oven tempOven = addOven();
                 Admin.notConfirmedGoods.add(tempOven);
                 CategoryPanel.ovens.add(tempOven);
                 break;
@@ -103,7 +109,7 @@ public class SellerPanel {
         int simcard = sc.nextInt();
         int cameraQuality = sc.nextInt();
 
-        CellPhone temp = new CellPhone(id, name, brand, price, exist, info,sellerCompany,
+        CellPhone temp = new CellPhone(id, name, brand, price, exist, info, sellerCompany,
                 sellerName, memory, ram, system, mass, size, simcard, cameraQuality);
         return temp;
     }
@@ -247,6 +253,7 @@ public class SellerPanel {
                 sellerCompany, sellerName, energy, warranty, capacity, type, freezer);
         return temp;
     }
+
     public Oven addOven() {
         System.out.println("please enter general information below: ");
         System.out.println("Id ,name , brand, price , existance status , information , company name , your name , " +
@@ -296,65 +303,89 @@ public class SellerPanel {
                 sellerCompany, sellerName, productionDate, expiryDate);
         return temp;
     }
-    public static void changeInfo(SalePerson seller){
-            String new1;
-            long new3;
-            System.out.println("I want to change my:");
-            System.out.println("1-Name \n2-LastName \n3-E_mail\n4-PhoneNumber\n5-Password");
-            Scanner sc = new Scanner(System.in);
-            int order = sc.nextInt();
-            int i =Admin.reallSellers.indexOf(seller);
-            switch (order){
-                case 1:
-                    System.out.println("please enter your new name:");
-                    new1= sc.nextLine();
-                    Admin.reallSellers.get(i).setName(new1);
-                    System.out.println("done!");
-                    break;
-                case 2:
-                    System.out.println("please enter your new lastname:");
-                    new1= sc.nextLine();
-                    Admin.reallSellers.get(i).setLastName(new1);
-                    System.out.println("done!");
-                    break;
-                case 3:
-                    System.out.println("please enter your new Email adress: ");
-                    new1= sc.nextLine();
-                    Admin.reallSellers.get(i).setEmail(new1);
-                    System.out.println("done!");
-                    break;
-                case 4:
-                    System.out.println("please enter your new phone number:");
-                    new3= sc.nextLong();
-                    Admin.reallSellers.get(i).setPhoneNumber(new3);
-                    System.out.println("done!");
-                    break;
-                case 5:
-                    System.out.println("please enter your new password");
-                    new1= sc.nextLine();
-                    System.out.println("please reenter your password: ");
-                    String pass2 = sc.nextLine();
-                    while (pass2 != new1) {
-                        System.out.println("passwords dosent match , try again");
-                        pass2 = sc.nextLine();
-                    }
-                    Admin.reallSellers.get(i).setPassword(new1);
-                    System.out.println("done!");
-                    break;
 
-            }
+    public static void changeInfo(SalePerson seller) {
+        String new1;
+        long new3;
+        System.out.println("I want to change my:");
+        System.out.println("1-Name \n2-LastName \n3-E_mail\n4-PhoneNumber\n5-Password");
+        Scanner sc = new Scanner(System.in);
+        int order = sc.nextInt();
+        int i = Admin.reallSellers.indexOf(seller);
+        switch (order) {
+            case 1:
+                System.out.println("please enter your new name:");
+                sc.nextLine();
+                new1 = sc.nextLine();
+                Admin.reallSellers.get(i).setName(new1);
+                System.out.println("done!");
+                break;
+            case 2:
+                System.out.println("please enter your new lastname:");
+                sc.nextLine();
+                new1 = sc.nextLine();
+                Admin.reallSellers.get(i).setLastName(new1);
+                System.out.println("done!");
+                break;
+            case 3:
+                System.out.println("please enter your new Email adress: ");
+                sc.nextLine();
+                new1 = sc.nextLine();
+                Admin.reallSellers.get(i).setEmail(new1);
+                System.out.println("done!");
+                break;
+            case 4:
+                System.out.println("please enter your new phone number:");
+                new3 = sc.nextLong();
+                Admin.reallSellers.get(i).setPhoneNumber(new3);
+                System.out.println("done!");
+                break;
+            case 5:
+                System.out.println("please enter your new password");
+                sc.nextLine();
+                new1 = sc.nextLine();
+                System.out.println("please reenter your password: ");
+                String pass2 = sc.nextLine();
+                while (pass2 != new1) {
+                    System.out.println("passwords dosent match , try again");
+                    pass2 = sc.nextLine();
+                }
+                Admin.reallSellers.get(i).setPassword(new1);
+                System.out.println("done!");
+                break;
+
+        }
     }
-    public static void deleteGood(SalePerson seller){
+
+    public static void deleteGood(SalePerson seller) {
         System.out.println("please enter the number next to product you want to delete:");
-        int i=1;
-        for(Goods a: seller.goods){
-            System.out.println(i+".  "+a.getName()+"   "+a.getBrand()+"  "+a.getPrice());
+        int i = 1;
+        for (Goods a : seller.goods) {
+            System.out.println(i + ".  " + a.getName() + "   " + a.getBrand() + "  " + a.getPrice());
             i++;
         }
         Scanner sc = new Scanner(System.in);
         int number = sc.nextInt();
-        number = number-1;
+        number = number - 1;
         seller.deleteRequests.add(seller.goods.get(number));
+    }
+
+    public static void saleHistory(SalePerson seller) {
+        long price = 0;
+        for (Goods a : seller.saledGoods) {
+            price = a.getPrice() + price;
+        }
+        Facture newFacture = new Facture("m145g", "21.1.1401", price, seller.getName(), "sent");
+        System.out.println("facture No." + Facture.getFactureCod() + "      " + "Date: " + Facture.getFactureDate());
+        System.out.println("--------------------products list-------------------");
+        int i = 1;
+        System.out.println();
+        for (Goods a : seller.saledGoods) {
+            System.out.println(i + " ." + a.getName() + "   " + a.getBrand() + "   " + a.getPrice() + "    " + a.getSellerCompanyName() + "   " + a.getSellerName());
+        }
+        System.out.println("----------------------------------------------------");
+
+        System.out.println("send statuse: " + Facture.getFactureSendStatus());
     }
 }
 
