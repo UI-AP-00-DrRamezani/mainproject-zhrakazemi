@@ -11,7 +11,7 @@ public class SellerPanel {
         SellerPanel x = new SellerPanel();
         while (true) {
             System.out.println("wellcome!\nplease choose an option:");
-            System.out.println("1-Change personal information\n2-Edit a product info\n3-Delete a product\n4-Add a product\n5-exit");
+            System.out.println("1-Change personal information\n2-Edit a product info\n3-Delete a product\n4-Add a product\n5-view your sale history\n6-exit");
             Scanner sc = new Scanner(System.in);
             int order = sc.nextInt();
             switch (order) {
@@ -28,7 +28,11 @@ public class SellerPanel {
                     x.addGood();
                     break;
                 case 5:
+                    saleHistory(seller);
+                    break;
+                case 6:
                     FirstPagePanel.firstPage();
+                    break;
             }
         }
     }
