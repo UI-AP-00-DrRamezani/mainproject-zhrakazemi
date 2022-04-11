@@ -1,30 +1,34 @@
 package com.company.panelsandpages.panels;
 
 import com.company.MainMenu.OnlineShopPanel;
-import com.company.entity.classes.*;
+import com.company.entity.classes.Admin;
+import com.company.entity.classes.Buyer;
+import com.company.entity.classes.Goods;
+import com.company.entity.classes.SalePerson;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static com.company.MainMenu.OnlineShopPanel.buyers;
 
-public class Adminpanel {
-    void menu() {
+public class AdminPanel {
+    public static void menu() {
         System.out.println("Welcome to admin panel\n" + "please choose what do you want to do: ");
-        System.out.println("1-changing personal informatio");
+        System.out.println("1-changing personal information");
         System.out.println("2-salesperson registration request ");
         System.out.println("3-products requests");
         System.out.println("4-view users list");
         System.out.println("5-delete a user ");
         System.out.println("6-categories list");
+        System.out.println("7-accepting changed products");
         Scanner sc = new Scanner(System.in);
         int order = sc.nextInt();
         switch (order) {
             case 1:
-                chngeInfo();
+                AdminPanel.chngeInfo();
                 break;
             case 2:
-                Adminpanel.addSeller(OnlineShopPanel.sellersSignUp());
+                AdminPanel.addSeller(OnlineShopPanel.sellers);
                 break;
             case 3:
                 System.out.println("1-add a product\n2-delete a product");
@@ -32,17 +36,20 @@ public class Adminpanel {
                 if (order == 1) {
                     addGood(Admin.notConfirmedGoods);
                 } else if (order == 2) {
-                    //TODO delete product
+                    AdminPanel.deleteGood();
                 }
                 break;
             case 4:
-                //
+                AdminPanel.viewUser();
                 break;
             case 5:
-                deleteUser();
+                AdminPanel.deleteUser();
                 break;
             case 6:
-                //
+                CategoryPanel.manu();
+                break;
+            case 7:
+                addGood(Admin.chngedProducts);
                 break;
         }
     }
@@ -65,8 +72,9 @@ public class Adminpanel {
         while (t > 0) {
             System.out.println("for accepting  requests enter their numbers: ");
             int number = sc.nextInt();
-            number = -1;
+            number -= 1;
             Admin.reallSellers.add(sellers.get(number));
+            sellers.remove(number);
             t--;
         }
     }
@@ -78,69 +86,22 @@ public class Adminpanel {
         int i = 1;
         if (one == 1) {
             for (Goods a : notConfirmedGoods)
-                System.out.println(i + ". " + a.getName() + "   " + a.getBrand() + "   " + a.getPrice() + "  " + a.getSellerCompanyName() + "   " + a.getSellerName());
-            i++;
+                System.out.println(i++ + ". " + a.getName() + "   " + a.getBrand() + "   " + a.getPrice() + "  " + a.getSellerCompanyName() + "   " + a.getSellerName());
         }
         System.out.println("please tell me how many requests you are going to accept now");
         int t = sc.nextInt();
         while (t > 0) {
-            System.out.println("now please tell me which product you are going to add:");
-            System.out.println("1-Cell Phone\n2-Lop top\n3-Shirt\n4-Shoes\n5-Tv\n6-Refrigerator\n7-Oven\n8-Food");
-            int category = sc.nextInt();
-            switch (category) {
-                case 1:
-                    System.out.println("please enter the number next to the product:");
-                    int number = sc.nextInt();
-                    number = number - 1;
-                    notConfirmedGoods.get(number).setConfirmStatus(true);
-                    break;
-                case 2:
-                    System.out.println("please enter the number next to the product:");
-                    number = sc.nextInt();
-                    number = number - 1;
-                    notConfirmedGoods.get(number).setConfirmStatus(true);
-                    break;
-                case 3:
-                    System.out.println("please enter the number next to the product:");
-                    number = sc.nextInt();
-                    number = number - 1;
-                    notConfirmedGoods.get(number).setConfirmStatus(true);
-                    break;
-                case 4:
-                    System.out.println("please enter the number next to the product:");
-                    number = sc.nextInt();
-                    number = number - 1;
-                    notConfirmedGoods.get(number).setConfirmStatus(true);
-                    break;
-                case 5:
-                    System.out.println("please enter the number next to the product:");
-                    number = sc.nextInt();
-                    number = number - 1;
-                    notConfirmedGoods.get(number).setConfirmStatus(true);
-                    break;
-                case 6:
-                    System.out.println("please enter the number next to the product:");
-                    number = sc.nextInt();
-                    number = number - 1;
-                    notConfirmedGoods.get(number).setConfirmStatus(true);
-                    break;
-                case 7:
-                    System.out.println("please enter the number next to the product:");
-                    number = sc.nextInt();
-                    number = number - 1;
-                    notConfirmedGoods.get(number).setConfirmStatus(true);
-                    break;
-                case 8:
-                    System.out.println("please enter the number next to the product:");
-                    number = sc.nextInt();
-                    number = number - 1;
-                    notConfirmedGoods.get(number).setConfirmStatus(true);
-                    break;
-            }
+
+            System.out.println("please enter the number next to the product:");
+            int number = sc.nextInt();
+            number = number - 1;
+            notConfirmedGoods.get(number).setConfirmStatus(true);
+            Admin.realGoods.add(notConfirmedGoods.get(number));
+            t--;
         }
     }
 
-    public void deleteUser() {
+    public static void deleteUser() {
         System.out.println("for viewing users list press one:");
         Scanner sc = new Scanner(System.in);
         int one = sc.nextInt();
@@ -157,8 +118,7 @@ public class Adminpanel {
         }
     }
 
-    public void viewUser() {
-        //TODO clean console
+    public static void viewUser() {
         for (Buyer a : buyers) {
             int i = 1;
             System.out.println(i + ". " + a.getUserName() + "   " + a.getName() + " " + a.getLastName() + "   " + a.getEmail() + "   " + a.getPhoneNumber());
@@ -166,7 +126,7 @@ public class Adminpanel {
         }
     }
 
-    void chngeInfo() {
+    public static void chngeInfo() {
         String new1;
         long new3;
         System.out.println("I want to change my:");
