@@ -1,13 +1,13 @@
 package com.company.entity.classes;
 
-public class GeneralAccount {
-   private String userName;
-   private String name;
-  private  String lastName;
-  private  String email;
-  private  long phoneNumber;
-  private String password;
-//TODO sabeqe kharid
+public abstract class GeneralAccount {
+    final private String userName;
+    private String name;
+    private String lastName;
+    private String email;
+    private long phoneNumber;
+    private String password;
+
     public String getUserName() {
         return userName;
     }
@@ -32,11 +32,6 @@ public class GeneralAccount {
         return password;
     }
 
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -59,7 +54,7 @@ public class GeneralAccount {
 
 
     public GeneralAccount(String userName, String name, String lastName, String email, long phoneNumber, String password) {
-        setUserName(userName);
+        this.userName = userName;
         setName(name);
         setLastName(lastName);
         setEmail(email);
