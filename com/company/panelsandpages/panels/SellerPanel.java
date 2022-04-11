@@ -1,6 +1,5 @@
 package com.company.panelsandpages.panels;
 
-import com.company.Main;
 import com.company.MainMenu.FirstPagePanel;
 import com.company.entity.classes.*;
 
@@ -19,7 +18,7 @@ public class SellerPanel {
                     changeInfo(seller);
                     break;
                 case 2:
-                    //
+                    changeProductInfo(seller);
                     break;
                 case 3:
                     deleteGood(seller);
@@ -95,16 +94,14 @@ public class SellerPanel {
         String name = sc.nextLine();
         String brand = sc.nextLine();
         long price = sc.nextLong();
-        boolean exist = sc.hasNext();
+        boolean exist = sc.nextBoolean();
         sc.nextLine();
         String info = sc.nextLine();
-        sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
         int memory = sc.nextInt();
         int ram = sc.nextInt();
         sc.nextLine();
-
         String system = sc.nextLine();
         double mass = sc.nextDouble();
         double size = sc.nextDouble();
@@ -127,23 +124,20 @@ public class SellerPanel {
         String name = sc.nextLine();
         String brand = sc.nextLine();
         long price = sc.nextLong();
-        boolean exist = sc.hasNext();
+        boolean exist = sc.nextBoolean();
         sc.nextLine();
         String info = sc.nextLine();
-        sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
         int memory = sc.nextInt();
         int ram = sc.nextInt();
         sc.nextLine();
-
         String system = sc.nextLine();
         double mass = sc.nextDouble();
         double size = sc.nextDouble();
-        sc.nextLine();
         System.out.println("now please enter CPU model and tell me if it is gaming or not: ");
         String CPU = sc.nextLine();
-        boolean gaming = sc.hasNext();
+        boolean gaming = sc.nextBoolean();
         Loptop loptop = new Loptop(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, memory, ram, system, mass, size, CPU, gaming);
         return loptop;
@@ -158,13 +152,11 @@ public class SellerPanel {
         String name = sc.nextLine();
         String brand = sc.nextLine();
         long price = sc.nextLong();
-        boolean exist = sc.hasNext();
+        boolean exist = sc.nextBoolean();
         sc.nextLine();
         String info = sc.nextLine();
-        sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
-        sc.nextLine();
         String countery = sc.nextLine();
         String material = sc.nextLine();
         System.out.println("now please enter size and shirt_type:");
@@ -185,13 +177,11 @@ public class SellerPanel {
         String name = sc.nextLine();
         String brand = sc.nextLine();
         long price = sc.nextLong();
-        boolean exist = sc.hasNext();
+        boolean exist = sc.nextBoolean();
         sc.nextLine();
         String info = sc.nextLine();
-        sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
-        sc.nextLine();
         String countery = sc.nextLine();
         String material = sc.nextLine();
         System.out.println("now please enter size and shoes type: ");
@@ -213,15 +203,13 @@ public class SellerPanel {
         String name = sc.nextLine();
         String brand = sc.nextLine();
         long price = sc.nextLong();
-        boolean exist = sc.hasNext();
+        boolean exist = sc.nextBoolean();
         sc.nextLine();
         String info = sc.nextLine();
-        sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
-        sc.nextLine();
         String energy = sc.nextLine();
-        boolean warranty = sc.hasNext();
+        boolean warranty = sc.nextBoolean();
         System.out.println("now please enter picture quality and its size:");
         int picQuality = sc.nextInt();
         int size = sc.nextInt();
@@ -239,20 +227,19 @@ public class SellerPanel {
         String name = sc.nextLine();
         String brand = sc.nextLine();
         long price = sc.nextLong();
-        boolean exist = sc.hasNext();
+        boolean exist = sc.nextBoolean();
         sc.nextLine();
         String info = sc.nextLine();
-        sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
-        sc.nextLine();
         String energy = sc.nextLine();
-        boolean warranty = sc.hasNext();
-        System.out.println("now please enter picture quality and its size:");
+        sc.nextLine();
+        boolean warranty = sc.nextBoolean();
+        System.out.println("now please enter its capacity and is it a freezer or not:");
         int capacity = sc.nextInt();
         sc.nextLine();
         String type = sc.nextLine();
-        boolean freezer = sc.hasNext();
+        boolean freezer = sc.nextBoolean();
         Rifrigirator temp = new Rifrigirator(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, energy, warranty, capacity, type, freezer);
         return temp;
@@ -267,20 +254,19 @@ public class SellerPanel {
         String name = sc.nextLine();
         String brand = sc.nextLine();
         long price = sc.nextLong();
-        boolean exist = sc.hasNext();
+        boolean exist = sc.nextBoolean();
         sc.nextLine();
         String info = sc.nextLine();
-        sc.nextLine();
         String sellerCompany = sc.nextLine();
         String sellerName = sc.nextLine();
-        sc.nextLine();
         String energy = sc.nextLine();
-        boolean warranty = sc.hasNext();
-        System.out.println("now please enter picture quality and its size:");
+        boolean warranty = sc.nextBoolean();
+        ;
+        System.out.println("now please enter its oven number and material and does it have oven or not:");
         int ovenNumber = sc.nextInt();
         sc.nextLine();
         String material = sc.nextLine();
-        boolean oven = sc.hasNext();
+        boolean oven = sc.nextBoolean();
         Oven temp = new Oven(id, name, brand, price, exist, info,
                 sellerCompany, sellerName, energy, warranty, ovenNumber, material, oven);
         return temp;
@@ -294,7 +280,7 @@ public class SellerPanel {
         String name = sc.nextLine();
         String brand = sc.nextLine();
         long price = sc.nextLong();
-        boolean exist = sc.hasNext();
+        boolean exist = sc.nextBoolean();
         sc.nextLine();
         String info = sc.nextLine();
         sc.nextLine();
@@ -379,8 +365,8 @@ public class SellerPanel {
         for (Goods a : seller.saledGoods) {
             price = a.getPrice() + price;
         }
-        Facture newFacture = new Facture("m145g", "21.1.1401", price, seller.getName(), "sent");
-        System.out.println("facture No." + Facture.getFactureCod() + "      " + "Date: " + Facture.getFactureDate());
+        Facture newFacture = new Facture("m145g", price, seller.getName(), "sent");
+        System.out.println("facture No." + newFacture.getFactureCod() + "      " + "Date: " + newFacture.getFactureDate());
         System.out.println("--------------------products list-------------------");
         int i = 1;
         System.out.println();
@@ -389,7 +375,36 @@ public class SellerPanel {
         }
         System.out.println("----------------------------------------------------");
 
-        System.out.println("send statuse: " + Facture.getFactureSendStatus());
+        System.out.println("send statuse: " + newFacture.getFactureSendStatus());
+    }
+
+    public static void changeProductInfo(SalePerson seller) {
+        int i = 1;
+        for (Goods a : seller.saledGoods) {
+            System.out.println(i + " ." + a.getName() + "   " + a.getBrand() + "   " + a.getPrice());
+        }
+        System.out.println("now please enter the number next to each product you want to change info:");
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        number = number - 1;
+        seller.saledGoods.get(number).setConfirmStatus(false);
+        Admin.chngedProducts.add(seller.saledGoods.get(number));
+
+        System.out.println("now please choose wich one do you want to change:\n1-product name\n2-product price");
+        int choose = sc.nextInt();
+        switch (choose) {
+            case 1:
+                System.out.println("please enter new name");
+                sc.nextLine();
+                String newName = sc.nextLine();
+                seller.saledGoods.get(number).setName(newName);
+                break;
+            case 2:
+                System.out.println("please enter new price");
+                long price = sc.nextLong();
+                seller.saledGoods.get(number).setPrice(price);
+                break;
+        }
     }
 }
 
