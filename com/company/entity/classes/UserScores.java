@@ -1,12 +1,10 @@
 package com.company.entity.classes;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class UserScores {
     private GeneralAccount user;
     public double score;
     private Goods good;
+
     public GeneralAccount getUser() {
         return user;
     }
