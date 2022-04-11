@@ -1,6 +1,5 @@
 package com.company.panelsandpages.panels;
 
-import com.company.entity.classes.Admin;
 import com.company.entity.classes.Buyer;
 import com.company.entity.classes.Goods;
 import com.company.entity.classes.UserReview;
@@ -8,7 +7,7 @@ import com.company.entity.classes.UserReview;
 import java.util.Scanner;
 
 public class UserReviewpanel {
-    UserReviewpanel getInof(Buyer buyer, Goods good) {
+    public static UserReviewpanel getInof(Buyer buyer, Goods good) {
         UserReview client = new UserReview();
         boolean bought = false;
         for (Goods a : buyer.boughtGoods) {
@@ -22,7 +21,7 @@ public class UserReviewpanel {
             }
         }
         if (bought == true) {
-            return this;
+            return client;
         } else {
             return null;
         }
