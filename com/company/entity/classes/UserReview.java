@@ -1,14 +1,12 @@
 package com.company.entity.classes;
 
 
+import com.company.panelsandpages.panels.UserReviewpanel;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
-public class UserReview {
-     GeneralAccount user;
-     String Text;
-     String status;
+public class UserReview extends UserReviewpanel {
+    GeneralAccount user;
+    private String Text;
+    public static String status;
 
     public GeneralAccount getUser() {
         return user;
@@ -30,8 +28,8 @@ public class UserReview {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public static void setStatus(String status) {
+        UserReview.status = status;
     }
 }
 
