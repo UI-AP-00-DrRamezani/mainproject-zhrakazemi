@@ -1,6 +1,6 @@
 package com.company.entity.classes;
 
-public class Shoes extends Clothes {
+public class Shoes extends Clothes implements Comparable{
     private int size;
 
     public static enum shoeType {
@@ -23,4 +23,47 @@ public class Shoes extends Clothes {
     public void setSize(int size) {
         this.size = size;
     }
-}
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Loptop ||
+                o instanceof CellPhone ||
+                o instanceof Rifrigirator ||
+                o instanceof TV ||
+                o instanceof Shirt) {
+            return -1;
+        } else if (o instanceof Shoes) {
+            if (this.getName().compareTo(((Shoes) o).getName()) > 0)
+                return 1;
+            else if (this.getName().compareTo(((Shoes) o).getName()) < 0)
+                return -1;
+            else {
+                if (this.getSize() > ((Shoes) o).getSize())
+                    return 1;
+                else if (this.getSize() < ((Shoes) o).getSize())
+                    return -1;
+                else {
+                    if (this.getAverageScore() > ((Shoes) o).getAverageScore())
+                        return 1;
+                    else if (this.getAverageScore() < ((Shoes) o).getAverageScore())
+                        return -1;
+                    else {
+                        if (this.getPrice() > ((Shoes) o).getPrice())
+                            return 1;
+                        else if (this.getPrice() < ((Shoes) o).getPrice())
+                            return -1;
+                        else {
+                            if (this.isExist() && ((Shoes) o).isExist())
+                                return 1;
+                            else if (!this.isExist() && ((Shoes) o).isExist())
+                                return -1;
+                        }
+                    }
+                }
+            }
+        }else{
+            return 1;
+        }
+        return 0;}
+    }
+

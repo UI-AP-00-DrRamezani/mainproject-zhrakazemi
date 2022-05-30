@@ -1,6 +1,6 @@
 package com.company.entity.classes;
 
-public class Loptop extends DigitalGood {
+public class Loptop extends DigitalGood implements Comparable{
     private String CPUModel;
     private boolean gaming;
 
@@ -34,5 +34,44 @@ public class Loptop extends DigitalGood {
 
     public void setGaming(boolean gaming) {
         this.gaming = gaming;
+    }
+
+    @Override
+public int compareTo(Object o){
+        if(o instanceof Loptop){
+            if (this.getName().compareTo(((Loptop) o).getName())>0)
+                return 1;
+            else if(this.getName().compareTo(((Loptop) o).getName())<0)
+                return -1;
+            else {
+                if (this.getRam() > ((Loptop) o).getRam())
+                    return 1;
+                else if (this.getRam() < ((Loptop) o).getRam())
+                    return -1;
+                else{
+                    if (this.getAverageScore()>((Loptop) o).getAverageScore())
+                        return 1;
+                    else if(this.getAverageScore()<((Loptop) o).getAverageScore())
+                        return -1;
+                    else{
+                        if(this.getPrice()>((Loptop) o).getPrice())
+                            return 1;
+                        else if(this.getPrice()<((Loptop) o).getPrice())
+                            return -1;
+                        else{
+                            if (this.isExist()&&((Loptop) o).isExist())
+                                return 1;
+                            else if(!this.isExist()&&((Loptop) o).isExist())
+                                return -1;
+                            else
+                                return 0;
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            return 1;
+        }
     }
 }

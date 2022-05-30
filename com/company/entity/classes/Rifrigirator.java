@@ -1,6 +1,6 @@
 package com.company.entity.classes;
 
-public class Rifrigirator extends HomeApplication {
+public class Rifrigirator extends HomeApplication implements Comparable {
     private int capacity;
     private String Type;
     private boolean freezer;
@@ -43,5 +43,45 @@ public class Rifrigirator extends HomeApplication {
 
     public void setFreezer(boolean freezer) {
         this.freezer = freezer;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Loptop || o instanceof Rifrigirator) {
+            return -1;
+        } else if (o instanceof Rifrigirator) {
+            if (this.getName().compareTo(((Rifrigirator) o).getName()) > 0) {
+                return 1;
+            } else if (this.getName().compareTo(((Rifrigirator) o).getName()) < 0) {
+                return -1;
+            } else {
+                if (this.getCapacity() > ((Rifrigirator) o).getCapacity()) {
+                    return 1;
+                } else if (this.getCapacity() < ((Rifrigirator) o).getCapacity()) {
+                    return -1;
+                } else {
+                    if (this.getAverageScore() > ((Rifrigirator) o).getAverageScore()) {
+                        return 1;
+                    } else if (this.getAverageScore() < ((Rifrigirator) o).getAverageScore()) {
+                        return -1;
+                    } else {
+                        if (this.getPrice() > ((Rifrigirator) o).getPrice()) {
+                            return 1;
+                        } else if (this.getPrice() < ((Rifrigirator) o).getPrice()) {
+                            return -1;
+                        } else {
+                            if (this.isExist() && ((Rifrigirator) o).isExist()) {
+                                return 1;
+                            } else if (!this.isExist() && ((Rifrigirator) o).isExist()) {
+                                return -1;
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            return 1;
+        }
+        return 0;
     }
 }

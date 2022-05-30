@@ -1,6 +1,6 @@
 package com.company.entity.classes;
 
-public class CellPhone extends DigitalGood {
+public class CellPhone extends DigitalGood implements Comparable {
     private int simCard;
     private int cameraQuality;
 
@@ -34,5 +34,43 @@ public class CellPhone extends DigitalGood {
 
     public void setCameraQuality(int cameraQuality) {
         this.cameraQuality = cameraQuality;
+    }
+
+    public int compareTo(Object o) {
+        if (o instanceof Loptop) {
+            return -1;
+        } else if (o instanceof CellPhone) {
+            if (this.getName().compareTo(((CellPhone) o).getName()) > 0)
+                return 1;
+            else if (this.getName().compareTo(((CellPhone) o).getName()) < 0)
+                return -1;
+            else {
+                if (this.getCameraQuality() > ((CellPhone) o).getCameraQuality())
+                    return 1;
+                else if (this.getCameraQuality() < ((CellPhone) o).getCameraQuality())
+                    return -1;
+                else {
+                    if (this.getAverageScore() > ((CellPhone) o).getAverageScore())
+                        return 1;
+                    else if (this.getAverageScore() < ((CellPhone) o).getAverageScore())
+                        return -1;
+                    else {
+                        if (this.getPrice() > ((CellPhone) o).getPrice())
+                            return 1;
+                        else if (this.getPrice() < ((CellPhone) o).getPrice())
+                            return -1;
+                        else {
+                            if (this.isExist() && ((CellPhone) o).isExist())
+                                return 1;
+                            else if (!this.isExist() && ((CellPhone) o).isExist())
+                                return -1;
+                        }
+                    }
+                }
+            }
+        } else {
+            return 1;
+        }
+        return 0;
     }
 }
