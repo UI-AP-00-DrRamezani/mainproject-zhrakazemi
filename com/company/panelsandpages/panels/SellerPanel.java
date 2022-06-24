@@ -1,8 +1,10 @@
 package com.company.panelsandpages.panels;
 
+import com.company.Exceptions.InvalidPhoneNumberException;
 import com.company.MainMenu.FirstPagePanel;
 import com.company.entity.classes.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SellerPanel {
@@ -12,7 +14,12 @@ public class SellerPanel {
             System.out.println("wellcome!\nplease choose an option:");
             System.out.println("1-Change personal information\n2-Edit a product info\n3-Delete a product\n4-Add a product\n5-view your sale history\n6-exit");
             Scanner sc = new Scanner(System.in);
-            int order = sc.nextInt();
+            int order = 0;
+            try {
+                order = sc.nextInt();
+            } catch (InputMismatchException mismatchException) {
+                System.out.println("The input type is incorrect");
+            }
             switch (order) {
                 case 1:
                     changeInfo(seller);
@@ -40,47 +47,101 @@ public class SellerPanel {
         System.out.println("please choose what kind of goods you want to add: ");
         System.out.println("1-Cell Phone\n2-Lop top\n3-Shirt\n4-Shoes\n5-Tv\n6-Refrigerator\n7-Oven\n8-Food");
         Scanner sc = new Scanner(System.in);
-        int good = sc.nextInt();
+        int good = 0;
+        try {
+            good = sc.nextInt();
+        } catch (InputMismatchException mismatchException) {
+            System.out.println("The input type is incorrect");
+            return;
+        }
         switch (good) {
             case 1:
-                CellPhone tempphone = addCellphone();
-                Admin.notConfirmedGoods.add(tempphone);
-                CategoryPanel.cellPhones.add(tempphone);
+                try {
+                    CellPhone tempphone = addCellphone();
+                    Admin.notConfirmedGoods.add(tempphone);
+                    CategoryPanel.cellPhones.add(tempphone);
+                    WriteGoodInfo.writeCellphoneInfo(tempphone);
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 break;
             case 2:
-                Loptop temploptop = addLoptop();
-                Admin.notConfirmedGoods.add(temploptop);
-                CategoryPanel.loptops.add(temploptop);
+                try {
+                    Loptop temploptop = addLoptop();
+                    Admin.notConfirmedGoods.add(temploptop);
+                    CategoryPanel.loptops.add(temploptop);
+                    WriteGoodInfo.writeLoptopInfo(temploptop);
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 break;
             case 3:
-                Shirt tempShirt = addShirt();
-                Admin.notConfirmedGoods.add(tempShirt);
-                CategoryPanel.shirt.add(tempShirt);
+                try {
+                    Shirt tempShirt = addShirt();
+                    Admin.notConfirmedGoods.add(tempShirt);
+                    CategoryPanel.shirt.add(tempShirt);
+                    WriteGoodInfo.writeShirtInfo(tempShirt);
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 break;
             case 4:
-                Shoes tempShoes = addshoe();
-                Admin.notConfirmedGoods.add(tempShoes);
-                CategoryPanel.shoes.add(tempShoes);
+                try {
+                    Shoes tempShoes = addshoe();
+                    Admin.notConfirmedGoods.add(tempShoes);
+                    CategoryPanel.shoes.add(tempShoes);
+                    WriteGoodInfo.writeShoesInfo(tempShoes);
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 break;
             case 5:
-                TV tempTv = addTv();
-                Admin.notConfirmedGoods.add(tempTv);
-                CategoryPanel.tvs.add(tempTv);
+                try {
+                    TV tempTv = addTv();
+                    Admin.notConfirmedGoods.add(tempTv);
+                    CategoryPanel.tvs.add(tempTv);
+                    WriteGoodInfo.writeTvInfo(tempTv);
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 break;
             case 6:
-                Rifrigirator tempref = addRefrigerator();
-                Admin.notConfirmedGoods.add(tempref);
-                CategoryPanel.rifrigirators.add(tempref);
+                try {
+                    Rifrigirator tempref = addRefrigerator();
+                    Admin.notConfirmedGoods.add(tempref);
+                    CategoryPanel.rifrigirators.add(tempref);
+                    WriteGoodInfo.writeRefrigeratorInfo(tempref);
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 break;
             case 7:
-                Oven tempOven = addOven();
-                Admin.notConfirmedGoods.add(tempOven);
-                CategoryPanel.ovens.add(tempOven);
+                try {
+                    Oven tempOven = addOven();
+                    Admin.notConfirmedGoods.add(tempOven);
+                    CategoryPanel.ovens.add(tempOven);
+                    WriteGoodInfo.writeOvenInfo(tempOven);
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 break;
             case 8:
-                Food tempFood = addFood();
-                Admin.notConfirmedGoods.add(tempFood);
-                CategoryPanel.foods.add(tempFood);
+                try {
+                    Food tempFood = addFood();
+                    Admin.notConfirmedGoods.add(tempFood);
+                    CategoryPanel.foods.add(tempFood);
+                    WriteGoodInfo.writeFoodInfo(tempFood);
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 break;
         }
     }
@@ -300,7 +361,13 @@ public class SellerPanel {
         System.out.println("I want to change my:");
         System.out.println("1-Name \n2-LastName \n3-E_mail\n4-PhoneNumber\n5-Password");
         Scanner sc = new Scanner(System.in);
-        int order = sc.nextInt();
+        int order;
+        try {
+            order = sc.nextInt();
+        } catch (InputMismatchException mismatchException) {
+            System.out.println("The input type is incorrect");
+            return;
+        }
         int i = Admin.reallSellers.indexOf(seller);
         switch (order) {
             case 1:
@@ -326,8 +393,18 @@ public class SellerPanel {
                 break;
             case 4:
                 System.out.println("please enter your new phone number:");
-                new3 = sc.nextLong();
-                Admin.reallSellers.get(i).setPhoneNumber(new3);
+                try {
+                    new3 = sc.nextLong();
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
+                try {
+                    Admin.reallSellers.get(i).setPhoneNumber(new3);
+                } catch (InvalidPhoneNumberException invalidPhoneNumberException){
+                    System.out.println(invalidPhoneNumberException.getMessage());
+                    return;
+                }
                 System.out.println("done!");
                 break;
             case 5:
@@ -355,7 +432,13 @@ public class SellerPanel {
             i++;
         }
         Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
+        int number;
+        try {
+            number = sc.nextInt();
+        } catch (InputMismatchException mismatchException) {
+            System.out.println("The input type is incorrect");
+            return;
+        }
         number = number - 1;
         seller.deleteRequests.add(seller.goods.get(number));
     }
@@ -385,13 +468,25 @@ public class SellerPanel {
         }
         System.out.println("now please enter the number next to each product you want to change info:");
         Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
+        int number;
+        try {
+            number = sc.nextInt();
+        } catch (InputMismatchException mismatchException) {
+            System.out.println("The input type is incorrect");
+            return;
+        }
         number = number - 1;
         seller.saledGoods.get(number).setConfirmStatus(false);
         Admin.chngedProducts.add(seller.saledGoods.get(number));
 
         System.out.println("now please choose wich one do you want to change:\n1-product name\n2-product price");
-        int choose = sc.nextInt();
+        int choose;
+        try {
+            choose = sc.nextInt();
+        } catch (InputMismatchException mismatchException) {
+            System.out.println("The input type is incorrect");
+            return;
+        }
         switch (choose) {
             case 1:
                 System.out.println("please enter new name");
@@ -401,8 +496,13 @@ public class SellerPanel {
                 break;
             case 2:
                 System.out.println("please enter new price");
-                long price = sc.nextLong();
-                seller.saledGoods.get(number).setPrice(price);
+                try {
+                    long price = sc.nextLong();
+                    seller.saledGoods.get(number).setPrice(price);
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 break;
         }
     }

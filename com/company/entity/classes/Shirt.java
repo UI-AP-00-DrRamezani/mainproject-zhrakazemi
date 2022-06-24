@@ -1,6 +1,6 @@
 package com.company.entity.classes;
 
-public class Shirt extends Clothes {
+public class Shirt extends Clothes implements Comparable{
     private String size;
 
     public static enum clothType {
@@ -28,5 +28,50 @@ public class Shirt extends Clothes {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof  Loptop ||
+                o instanceof  CellPhone ||
+                o instanceof  Rifrigirator ||
+                o instanceof TV||
+        o instanceof Oven){
+            return -1;
+        }
+        else if(o instanceof Shirt){
+            if (this.getName().compareTo(((Shirt) o).getName()) > 0)
+                return 1;
+            else if (this.getName().compareTo(((Shirt) o).getName()) < 0)
+                return -1;
+            else {
+                if (this.getSize().compareTo(((Shirt) o).getSize()) >0 )
+                    return 1;
+                else if (this.getSize().compareTo(((Shirt) o).getSize())< 0)
+                    return -1;
+                else {
+                    if (this.getAverageScore() > ((Shirt) o).getAverageScore())
+                        return 1;
+                    else if (this.getAverageScore() < ((Shirt) o).getAverageScore())
+                        return -1;
+                    else {
+                        if (this.getPrice() > ((Shirt) o).getPrice())
+                            return 1;
+                        else if (this.getPrice() < ((Shirt) o).getPrice())
+                            return -1;
+                        else {
+                            if (this.isExist() && ((Shirt) o).isExist())
+                                return 1;
+                            else if (!this.isExist() && ((Shirt) o).isExist())
+                                return -1;
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            return 1;
+        }
+        return 0;
     }
 }

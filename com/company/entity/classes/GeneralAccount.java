@@ -1,6 +1,12 @@
 package com.company.entity.classes;
 
-public abstract class GeneralAccount {
+import com.company.Exceptions.InvalidEmailAddressException;
+import com.company.Exceptions.InvalidPhoneNumberException;
+
+import java.io.Serializable;
+import java.util.regex.Pattern;
+
+public abstract class GeneralAccount implements Serializable {
     final private String userName;
     private String name;
     private String lastName;
@@ -41,10 +47,14 @@ public abstract class GeneralAccount {
     }
 
     public void setEmail(String email) {
+        if (!Pattern.matches(".+@.+[.].+", email))
+            throw new InvalidEmailAddressException("email address format not valid");
         this.email = email;
     }
 
     public void setPhoneNumber(long phoneNumber) {
+        if (!Pattern.matches("9\\d{8}", String.valueOf(phoneNumber))) {
+            throw new InvalidPhoneNumberException("Phone number format not valid");}
         this.phoneNumber = phoneNumber;
     }
 

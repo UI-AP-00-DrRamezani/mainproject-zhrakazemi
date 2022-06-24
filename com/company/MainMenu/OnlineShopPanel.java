@@ -1,14 +1,15 @@
 package com.company.MainMenu;
 
+import com.company.Exceptions.InvalidDataException;
 import com.company.Main;
-import com.company.entity.classes.Admin;
-import com.company.entity.classes.Buyer;
-import com.company.entity.classes.Goods;
-import com.company.entity.classes.SalePerson;
+import com.company.entity.classes.*;
 import com.company.panelsandpages.panels.BuyerPanel;
 import com.company.panelsandpages.panels.SellerPanel;
+import com.company.panelsandpages.panels.WriteGoodInfo;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class OnlineShopPanel {
@@ -46,16 +47,49 @@ public class OnlineShopPanel {
             System.out.println("passwords dosent match , try again");
             pass2 = sc.nextLine();
         }
+        try {
+            Buyer buyer = new Buyer(userName, name, lastName, email, phonenumber, password, money);
+            buyers.add(buyer);
+            OnlineShopPanel.writeClientInfo(buyer);
+        } catch (InvalidDataException invalidDataException){
+            System.out.println(invalidDataException.getMessage());
+        }
         System.out.println("done! for entering System press one: ");
-        int one = sc.nextInt();
-        Buyer buyer = new Buyer(userName, name, lastName, email, phonenumber, password, money);
-        buyers.add(buyer);
+        int one;
+        try {
+        one = sc.nextInt();
+        }catch (InputMismatchException mismatchException){
+            System.out.println("The input type is incorrect");
+            return;
+        }
         if (one == 1) {
             OnlineShopPanel.buyerlogin();
         }
     }
+    public  static void writeClientInfo(Buyer buyer){
+        Folders.createFolder("saved data\\users\\buyers\\buyer"+buyer.getName());
+        File file = new File("saved data\\users\\buyers\\buyer"+buyer.getName()+ "\\Info.txt");
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        PrintWriter printWriter;
+        try {
+            printWriter = new PrintWriter(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        printWriter.println(buyer.getUserName());
+        printWriter.println(buyer.getName());
+        printWriter.println(buyer.getLastName());
+        printWriter.println(buyer.getEmail());
+        printWriter.println(buyer.getPhoneNumber());
+        printWriter.println(buyer.getPassword());
+        printWriter.println(buyer.getMoney());
 
-    public static ArrayList<SalePerson> sellersSignUp() {
+    }
+    public static void sellersSignUp() {
         System.out.println("please enter your information: ");
         Scanner sc = new Scanner(System.in);
         System.out.println("please choose an ID: ");
@@ -77,7 +111,13 @@ public class OnlineShopPanel {
         System.out.println("enter your E_mail adress: ");
         String email = sc.nextLine();
         System.out.println("enter your phone number: ");
-        long phonenumber = sc.nextLong();
+        long phonenumber;
+        try {
+             phonenumber = sc.nextLong();
+        }catch (InputMismatchException mismatchException){
+            System.out.println("incorrect input type");
+            return;
+        }
         System.out.println("well done! \n now please choose an strong password: ");
         sc.nextLine();
         String password = sc.nextLine();
@@ -87,11 +127,40 @@ public class OnlineShopPanel {
             System.out.println("passwords dosent match , try again");
             pass2 = sc.nextLine();
         }
-        SalePerson seller = new SalePerson(userName, name, lastName, email, phonenumber, password, companyName, companyNo);
-        sellers.add(seller);
-        return sellers;
-    }
+        try {
+            SalePerson seller = new SalePerson(userName, name, lastName, email, phonenumber, password, companyName, companyNo);
+            sellers.add(seller);
+            writeRequestList();
 
+        } catch (InvalidDataException invalidDataException){
+            System.out.println(invalidDataException.getMessage());
+        }
+    }
+    public  static void writeSellerInfo(SalePerson salePerson){
+        Folders.createFolder("saved data\\users\\sellers\\seller"+ salePerson.getName());
+        File file = new File("saved data\\users\\sellers\\seller"+ salePerson.getName() + "\\Info.txt");
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        PrintWriter printWriter;
+        try {
+            printWriter = new PrintWriter(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        printWriter.println(salePerson.getName());
+        printWriter.println(salePerson.getLastName());
+        printWriter.println(salePerson.getUserName());
+        printWriter.println(salePerson.getPassword());
+        printWriter.println(salePerson.getPhoneNumber());
+        printWriter.println(salePerson.getEmail());
+        printWriter.println(salePerson.getCompanyNo());
+        printWriter.println(salePerson.getCompanyName());
+        printWriter.close();
+
+    }
     public static Buyer buyerlogin() {
         Buyer[] newbuyer = new Buyer[1];
         Scanner sc = new Scanner(System.in);
@@ -134,6 +203,31 @@ public class OnlineShopPanel {
                     }
                 }
             }
+        }
+    }
+    private static void writeRequestList() {
+        FileOutputStream fileOutputStream;
+        try {
+            fileOutputStream = new FileOutputStream("saved data\\users\\admin\\request.txt");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        ObjectOutputStream objectOutputStream;
+        try {
+            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            objectOutputStream.writeObject(sellers);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            objectOutputStream.close();
+            fileOutputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
