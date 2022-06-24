@@ -1,7 +1,7 @@
 package com.company.entity.classes;
 
 import com.company.MainMenu.OnlineShopPanel;
-import com.company.panelsandpages.panels.CategoryPanel;
+import com.company.panels.CategoryPanel;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,8 +1,7 @@
-package com.company.panelsandpages.panels;
+package com.company.panels;
 
 import com.company.Exceptions.InvalidEmailAddressException;
 import com.company.Exceptions.InvalidPhoneNumberException;
-import com.company.Main;
 import com.company.MainMenu.OnlineShopPanel;
 import com.company.entity.classes.*;
 

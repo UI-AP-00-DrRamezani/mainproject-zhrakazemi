@@ -1,6 +1,5 @@
-package com.company.panelsandpages.panels;
+package com.company.panels;
 
-import com.company.Exceptions.InvalidEmailAddressException;
 import com.company.Exceptions.InvalidPhoneNumberException;
 import com.company.Exceptions.LackOfBudgetException;
 import com.company.Main;

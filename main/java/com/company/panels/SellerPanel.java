@@ -1,4 +1,4 @@
-package com.company.panelsandpages.panels;
+package com.company.panels;
 
 import com.company.Exceptions.InvalidPhoneNumberException;
 import com.company.MainMenu.FirstPagePanel;

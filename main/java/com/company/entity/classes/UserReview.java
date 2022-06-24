@@ -1,7 +1,7 @@
 package com.company.entity.classes;
 
 
-import com.company.panelsandpages.panels.UserReviewpanel;
+import com.company.panels.UserReviewpanel;
 
 public class UserReview extends UserReviewpanel {
     GeneralAccount user;

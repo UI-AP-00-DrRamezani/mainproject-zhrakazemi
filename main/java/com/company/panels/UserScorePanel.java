@@ -1,4 +1,4 @@
-package com.company.panelsandpages.panels;
+package com.company.panels;
 
 import com.company.entity.classes.Goods;
 import com.company.entity.classes.UserScores;

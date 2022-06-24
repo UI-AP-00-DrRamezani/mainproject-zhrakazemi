@@ -3,9 +3,8 @@ package com.company.MainMenu;
 import com.company.Exceptions.InvalidDataException;
 import com.company.Main;
 import com.company.entity.classes.*;
-import com.company.panelsandpages.panels.BuyerPanel;
-import com.company.panelsandpages.panels.SellerPanel;
-import com.company.panelsandpages.panels.WriteGoodInfo;
+import com.company.panels.BuyerPanel;
+import com.company.panels.SellerPanel;
 
 import java.io.*;
 import java.util.ArrayList;

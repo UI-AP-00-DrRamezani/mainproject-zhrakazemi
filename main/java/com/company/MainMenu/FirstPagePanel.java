@@ -2,7 +2,7 @@ package com.company.MainMenu;
 
 import com.company.entity.classes.Admin;
 import com.company.entity.classes.Goods;
-import com.company.panelsandpages.panels.AdminPanel;
+import com.company.panels.AdminPanel;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
