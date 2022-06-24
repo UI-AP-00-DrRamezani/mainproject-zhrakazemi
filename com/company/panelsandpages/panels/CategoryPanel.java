@@ -3,6 +3,7 @@ package com.company.panelsandpages.panels;
 import com.company.entity.classes.*;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CategoryPanel {
@@ -20,7 +21,12 @@ public class CategoryPanel {
             System.out.println("choose an option:");
             System.out.println("1-viewing whole products\n2-viewing products by searching their name\n");
             Scanner sc = new Scanner(System.in);
-            int choose = sc.nextInt();
+            int choose = 0;
+            try {
+                choose = sc.nextInt();
+            } catch (InputMismatchException mismatchException) {
+                System.out.println("The input type is incorrect");
+            }
             switch (choose) {
                 case 1:
                     showProduct();
@@ -37,12 +43,23 @@ public class CategoryPanel {
         System.out.println("choose a category:");
         System.out.println("1-Digital Goods\n2-Clothes\n3-Home Applications\n4-Food products");
         Scanner sc = new Scanner(System.in);
-        int category = sc.nextInt();
+        int category;
+        try {
+            category = sc.nextInt();
+        } catch (InputMismatchException mismatchException) {
+            System.out.println("The input type is incorrect");
+            return;
+        }
         switch (category) {
             case 1:
                 System.out.println("please choose :");
                 System.out.println("1-Cell Phone\n2-Lop top");
-                category = sc.nextInt();
+                try {
+                    category = sc.nextInt();
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 if (category == 1) {
                     int i = 1;
                     for (CellPhone a : cellPhones) {
@@ -53,7 +70,13 @@ public class CategoryPanel {
                     }
                     System.out.println("for viewing each product enter the number next to it and for filtering them by brand ," +
                             " press 0 :");
-                    int number = sc.nextInt();
+                    int number;
+                    try {
+                        number = sc.nextInt();
+                    } catch (InputMismatchException mismatchException) {
+                        System.out.println("The input type is incorrect");
+                        return;
+                    }
                     if (number == 0) {
                         for (Goods a : cellPhones) {
                             goods.add(a);
@@ -73,7 +96,13 @@ public class CategoryPanel {
                     }
                     System.out.println("for viewing each product enter the number next to it and for filtering them by brand ," +
                             " press 0 :");
-                    int number = sc.nextInt();
+                    int number;
+                    try {
+                        number = sc.nextInt();
+                    } catch (InputMismatchException mismatchException) {
+                        System.out.println("The input type is incorrect");
+                        return;
+                    }
                     if (number == 0) {
                         for (Goods a : loptops) {
                             goods.add(a);
@@ -88,7 +117,12 @@ public class CategoryPanel {
             case 2:
                 System.out.println("please choose :");
                 System.out.println("1-Shirt\n2-Shoes");
-                category = sc.nextInt();
+                try {
+                    category = sc.nextInt();
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 if (category == 1) {
                     int i = 1;
                     for (Shirt a : shirt) {
@@ -99,7 +133,13 @@ public class CategoryPanel {
                     }
                     System.out.println("for viewing each product enter the number next to it and for filtering them by brand ," +
                             " press 0 :");
-                    int number = sc.nextInt();
+                    int number;
+                    try {
+                        number = sc.nextInt();
+                    } catch (InputMismatchException mismatchException) {
+                        System.out.println("The input type is incorrect");
+                        return;
+                    }
                     if (number == 0) {
                         for (Goods a : shirt) {
                             goods.add(a);
@@ -119,7 +159,13 @@ public class CategoryPanel {
                     }
                     System.out.println("for viewing each product enter the number next to it and for filtering them by brand ," +
                             " press 0 :");
-                    int number = sc.nextInt();
+                    int number;
+                    try {
+                        number = sc.nextInt();
+                    } catch (InputMismatchException mismatchException) {
+                        System.out.println("The input type is incorrect");
+                        return;
+                    }
                     if (number == 0) {
                         for (Goods a : shoes) {
                             goods.add(a);
@@ -133,7 +179,12 @@ public class CategoryPanel {
             case 3:
                 System.out.println("please choose:");
                 System.out.println("1-Tvs\n2-Refrigerators\n3-Ovens");
-                category = sc.nextInt();
+                try {
+                    category = sc.nextInt();
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 if (category == 1) {
                     int i = 1;
                     for (Goods a : tvs) {
@@ -144,7 +195,13 @@ public class CategoryPanel {
                     }
                     System.out.println("for viewing each product enter the number next to it and for filtering them by brand ," +
                             " press 0 :");
-                    int number = sc.nextInt();
+                    int number;
+                    try {
+                        number = sc.nextInt();
+                    } catch (InputMismatchException mismatchException) {
+                        System.out.println("The input type is incorrect");
+                        return;
+                    }
                     if (number == 0) {
                         for (Goods a : tvs) {
                             goods.add(a);
@@ -164,7 +221,13 @@ public class CategoryPanel {
                     }
                     System.out.println("for viewing each product enter the number next to it and for filtering them by brand ," +
                             " press 0 :");
-                    int number = sc.nextInt();
+                    int number;
+                    try {
+                        number = sc.nextInt();
+                    } catch (InputMismatchException mismatchException) {
+                        System.out.println("The input type is incorrect");
+                        return;
+                    }
                     if (number == 0) {
                         for (Goods a : rifrigirators) {
                             goods.add(a);
@@ -184,7 +247,13 @@ public class CategoryPanel {
                     }
                     System.out.println("for viewing each product enter the number next to it and for filtering them by brand ," +
                             " press 0 :");
-                    int number = sc.nextInt();
+                    int number;
+                    try {
+                        number = sc.nextInt();
+                    } catch (InputMismatchException mismatchException) {
+                        System.out.println("The input type is incorrect");
+                        return;
+                    }
                     if (number == 0) {
                         for (Goods a : ovens) {
                             goods.add(a);
@@ -205,7 +274,13 @@ public class CategoryPanel {
                 }
                 System.out.println("for viewing each product enter the number next to it and for filtering them by brand ," +
                         " press 0 :");
-                int number = sc.nextInt();
+                int number;
+                try {
+                    number = sc.nextInt();
+                } catch (InputMismatchException mismatchException) {
+                    System.out.println("The input type is incorrect");
+                    return;
+                }
                 if (number == 0) {
                     for (Goods a : foods) {
                         goods.add(a);
@@ -245,7 +320,13 @@ public class CategoryPanel {
         }
         System.out.println("for viewing each product enter the number next to it and for filtering them by brand ," +
                 " press 0 :");
-        int order = sc.nextInt();
+        int order;
+        try {
+            order = sc.nextInt();
+        } catch (InputMismatchException mismatchException) {
+            System.out.println("The input type is incorrect");
+            return;
+        }
         if (order > 0) {
             order = order - 1;
             ProductPanel.showProduct(resultGoods.get(order));
@@ -272,7 +353,13 @@ public class CategoryPanel {
             i++;
         }
         System.out.println("for viewing each product enter the number next to it: ");
-        int number = sc.nextInt();
+        int number;
+        try {
+            number = sc.nextInt();
+        } catch (InputMismatchException mismatchException) {
+            System.out.println("The input type is incorrect");
+            return;
+        }
         number = number - 1;
         ProductPanel.showProduct(resultGoods.get(number));
     }

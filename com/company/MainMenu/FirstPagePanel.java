@@ -4,6 +4,7 @@ import com.company.entity.classes.Admin;
 import com.company.entity.classes.Goods;
 import com.company.panelsandpages.panels.AdminPanel;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FirstPagePanel {
@@ -11,7 +12,12 @@ public class FirstPagePanel {
         while (true) {
             System.out.println("welcome! \nplease choose:\n1-viewing products\n2-log in \n3-log out");
             Scanner sc = new Scanner(System.in);
-            int choose = sc.nextInt();
+            int choose=0;
+            try{
+            choose = sc.nextInt();
+            }catch (InputMismatchException mismatchException){
+                System.out.println("The input type is incorrect");
+            }
             if (choose == 1) {
                 int i = 1;
                 for (Goods a : Admin.realGoods) {
