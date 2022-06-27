@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.ProductList">
+   <children>
+      <RadioButton fx:id="radioCellphone" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#pressonCellphone" text="Cell phone" />
+      <RadioButton fx:id="radioLaptop" layoutX="112.0" layoutY="35.0" mnemonicParsing="false" onAction="#pressonLaptop" text="Laptop" />
+      <RadioButton fx:id="radioShoe" layoutX="190.0" layoutY="35.0" mnemonicParsing="false" onAction="#pressonShoe" text="Shoe" />
+      <RadioButton fx:id="radioShirt" layoutX="254.0" layoutY="35.0" mnemonicParsing="false" onAction="#pressonShirt" text="Shirt" />
+      <RadioButton fx:id="radioRefrigerator" layoutX="372.0" layoutY="35.0" mnemonicParsing="false" onAction="#pressonRefrigerator" text="Refrigerator" />
+      <RadioButton fx:id="radioTv" layoutX="319.0" layoutY="35.0" mnemonicParsing="false" onAction="#pressonTv" text="tv" />
+      <RadioButton fx:id="radioFood" layoutX="477.0" layoutY="35.0" mnemonicParsing="false" onAction="#pressonFood" text="Food" />
+      <RadioButton fx:id="radioOven" layoutX="539.0" layoutY="35.0" mnemonicParsing="false" onAction="#pressonOven" text="oven" />
+      <ListView fx:id="listviewProduct" layoutY="105.0" onMouseClicked="#pressonProduct" prefHeight="295.0" prefWidth="600.0" />
+   </children>
+</AnchorPane>
