@@ -22,9 +22,6 @@ public class AdminPanel {
     private Button btnCategoriesList;
 
     @FXML
-    private Button btnDeleteAuser;
-
-    @FXML
     private Button btnLogOut;
 
     @FXML
@@ -41,7 +38,16 @@ public class AdminPanel {
 
     @FXML
     void pressonAcceptingChangedProducts(ActionEvent event) {
-
+        Stage primaryStage = new Stage();
+        AnchorPane root = null;
+        try {
+            root = (AnchorPane) FXMLLoader.load(HelloApplication.class.getResource("changedProducts.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Scene scene = new Scene(root, 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     @FXML
@@ -74,10 +80,6 @@ public class AdminPanel {
         primaryStage.show();
     }
 
-    @FXML
-    void pressonDeleteaUser(ActionEvent event) {
-
-    }
 
     @FXML
     void pressonLogOut(ActionEvent event) {

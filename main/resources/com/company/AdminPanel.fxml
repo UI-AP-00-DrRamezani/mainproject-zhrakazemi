@@ -24,7 +24,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnVeiwUsersList" layoutX="359.0" layoutY="166.0" mnemonicParsing="false" onAction="#pressonViewUsersList" prefHeight="25.0" prefWidth="190.0" text="view users list">
+      <Button fx:id="btnVeiwUsersList" layoutX="359.0" layoutY="166.0" mnemonicParsing="false" onAction="#pressonViewUsersList" prefHeight="25.0" prefWidth="190.0" text="view users list and delete">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -34,22 +34,17 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnDeleteAuser" layoutX="73.0" layoutY="216.0" mnemonicParsing="false" onAction="#pressonDeleteaUser" prefHeight="25.0" prefWidth="190.0" text="delete a user">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
       <Button fx:id="btnCategoriesList" layoutX="359.0" layoutY="216.0" mnemonicParsing="false" onAction="#pressonCategoriesList" prefHeight="25.0" prefWidth="190.0" text="categories list">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnAcceptingChangedProducts" layoutX="72.0" layoutY="266.0" mnemonicParsing="false" onAction="#pressonAcceptingChangedProducts" prefHeight="25.0" prefWidth="190.0" text="accepting changed products">
+      <Button fx:id="btnAcceptingChangedProducts" layoutX="73.0" layoutY="216.0" mnemonicParsing="false" onAction="#pressonAcceptingChangedProducts" prefHeight="25.0" prefWidth="190.0" text="accepting changed products">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogOut" layoutX="432.0" layoutY="266.0" mnemonicParsing="false" onAction="#pressonLogOut" text="log out">
+      <Button fx:id="btnLogOut" layoutX="278.0" layoutY="264.0" mnemonicParsing="false" onAction="#pressonLogOut" text="log out">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

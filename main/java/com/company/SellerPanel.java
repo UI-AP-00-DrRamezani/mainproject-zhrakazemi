@@ -77,17 +77,44 @@ public class SellerPanel {
 
     @FXML
     void pressonSaleHistory(ActionEvent event) {
-
+        Stage primaryStage = new Stage();
+        AnchorPane root = null;
+        try {
+            root = (AnchorPane) FXMLLoader.load(HelloApplication.class.getResource("Facture.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Scene scene = new Scene(root, 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     @FXML
     void pressonbtnDeleteaproduct(ActionEvent event) {
-
+        Stage primaryStage = new Stage();
+        AnchorPane root = null;
+        try {
+            root = (AnchorPane) FXMLLoader.load(HelloApplication.class.getResource("DeleteProductSeller.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Scene scene = new Scene(root, 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     @FXML
     void pressonbtnEditProductInfo(ActionEvent event) {
-
+        Stage primaryStage = new Stage();
+        AnchorPane root = null;
+        try {
+            root = (AnchorPane) FXMLLoader.load(HelloApplication.class.getResource("ChangeProductSeller.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Scene scene = new Scene(root, 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
 }
