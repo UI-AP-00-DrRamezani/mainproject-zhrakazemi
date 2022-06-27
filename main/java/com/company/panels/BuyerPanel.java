@@ -5,6 +5,7 @@ import com.company.Exceptions.LackOfBudgetException;
 import com.company.Main;
 import com.company.entity.classes.Buyer;
 import com.company.entity.classes.Goods;
+import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -109,16 +110,22 @@ public class BuyerPanel {
         }
         String sellerName = goods.get(0).getSellerName();
         Facture newFacture = new Facture("m145g", price, sellerName, "waiting");
-        System.out.println("facture No." + newFacture.getFactureCod() + "      " + "Date: " + newFacture.getFactureDate());
-        System.out.println("--------------------products list-------------------");
+
+        String temp="";
+        temp+=("facture No." + newFacture.getFactureCod() + "      " + "Date: " + newFacture.getFactureDate()+"\n");
+        temp+=("--------------------products list-------------------\n");
         int i = 1;
         System.out.println();
         for (Goods a : goods) {
-            System.out.println(i + " ." + a.getName() + "   " + a.getBrand() + "   " + a.getPrice() + "    " + a.getSellerCompanyName() + "   " + a.getSellerName());
+            temp+=(i + " ." + a.getName() + "   " + a.getBrand() + "   " + a.getPrice() + "    " + a.getSellerCompanyName() + "   " + a.getSellerName()+"\n");
         }
-        System.out.println("----------------------------------------------------");
+        temp+=("----------------------------------------------------\n");
 
-        System.out.println("send statuse: " + newFacture.getFactureSendStatus());
+        temp+=("send statuse: " + newFacture.getFactureSendStatus());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("warning");
+        alert.setContentText(temp);
+        alert.showAndWait();
     }
 
     public static void cart(Buyer buyer) {
