@@ -2,10 +2,11 @@
 
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.UserList">
    <children>
       <ListView fx:id="listviewUsers" layoutY="105.0" onMouseClicked="#pressonUser" prefHeight="295.0" prefWidth="600.0" />
+      <Text layoutX="205.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on user that you want to delete" />
    </children>
 </AnchorPane>
