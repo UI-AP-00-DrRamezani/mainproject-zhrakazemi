@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.ViewCart">
+   <children>
+      <ImageView fitHeight="407.0" fitWidth="607.0" layoutX="-5.0" layoutY="-5.0" opacity="0.44" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@abstract-purple-watercolor-background_23-2149036193.jpg" />
+         </image>
+      </ImageView>
+      <ListView fx:id="lvProducts" layoutX="78.0" layoutY="83.0" prefHeight="228.0" prefWidth="341.0" />
+      <Button fx:id="btnShopping" layoutX="419.0" layoutY="335.0" mnemonicParsing="false" onAction="#pressonBtnSHOPPING" text="Finish Shopping">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="78.0" layoutY="43.0" text="your product list:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
