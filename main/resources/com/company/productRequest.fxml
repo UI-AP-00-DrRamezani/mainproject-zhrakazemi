@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="438.0" prefWidth="616.0" style="-fx-background-color: #c5b6d5;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.ProductRequest">
+   <children>
+      <ListView fx:id="listviewProduct" layoutX="129.0" layoutY="108.0" onMouseClicked="#pressonProduct" prefHeight="357.0" prefWidth="359.0" />
+      <Label layoutX="185.0" layoutY="54.0" text="for accepting each request , choose it">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Line endX="40.5" endY="378.79290771484375" layoutX="14.0" layoutY="84.0" startX="40.49998474121094" startY="-129.5" />
+      <Line endX="33.0" endY="-132.00001525878906" layoutX="521.0" layoutY="132.0" startX="33.0" startY="331.79290771484375" />
+   </children>
+</AnchorPane>
