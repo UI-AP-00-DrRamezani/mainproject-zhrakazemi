@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.ChangePersonalInfo">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="601.0" layoutX="-14.0" layoutY="29.0" opacity="0.39" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@watercolor-abstract-purple-background_23-2149120778.jpg" />
+         </image>
+      </ImageView>
+      <RadioButton fx:id="btnName" layoutX="40.0" layoutY="132.0" mnemonicParsing="false" onAction="#changeName" text="Name" />
+      <RadioButton fx:id="btnlName" layoutX="123.0" layoutY="132.0" mnemonicParsing="false" onAction="#ChangeLastName" text="LastName" />
+      <RadioButton fx:id="btnPhoneNum" layoutX="228.0" layoutY="132.0" mnemonicParsing="false" onAction="#ChangePhoneNum" text="Phone Number" />
+      <RadioButton fx:id="btnEmail" layoutX="372.0" layoutY="132.0" mnemonicParsing="false" onAction="#ChangeEmail" text="Email" />
+      <RadioButton fx:id="btnpass" layoutX="465.0" layoutY="132.0" mnemonicParsing="false" onAction="#changePass" text="Password" />
+      <Label layoutX="162.0" layoutY="75.0" text="which information do you want to chang?">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="219.0" layoutY="219.0" text="enter the new information">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtnewInfo" layoutX="226.0" layoutY="259.0" promptText="new info" />
+      <Button fx:id="btnDone" layoutX="275.0" layoutY="321.0" mnemonicParsing="false" onAction="#pressonDonebtn" text="Button" />
+   </children>
+</AnchorPane>
